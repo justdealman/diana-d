@@ -141,6 +141,12 @@ button::-moz-focus-inner {
 	-webkit-box-shadow:border-box;
 	box-sizing:border-box;
 }
+.wrapper.no-border {
+	padding-top:120px;
+}
+.wrapper.no-border header {
+	border-bottom:0;
+}
 
 /* Core */
 
@@ -156,6 +162,12 @@ button::-moz-focus-inner {
 	top:50%;
 	width:320px;
 	margin-top:-136px;
+}
+.index .text > div {
+	display:none;
+}
+.index .text > div:first-child {
+	display:block;
 }
 .index .text p {
 	display:none;
@@ -276,13 +288,9 @@ footer .copy {
 	position:relative;
 	z-index:1;
 	height:40px;
-	opacity:0.5;
 }
 .player.short div {
 	max-width:520px;
-}
-.player:hover div {
-	opacity:1;
 }
 .player p {
 	position:absolute;
@@ -292,6 +300,7 @@ footer .copy {
 	font-size:14px;
 	line-height:20px;
 	margin:0;
+	opacity:0.5;
 }
 .player .progress {
 	position:absolute;
@@ -302,6 +311,10 @@ footer .copy {
 	height:2px;
 	cursor:pointer;
 	background:#ffffff;
+	opacity:0.5;
+}
+.player:hover p, .player:hover .progress {
+	opacity:1;
 }
 .player i {
 	position:absolute;
@@ -310,6 +323,10 @@ footer .copy {
 	width:20px;
 	height:20px;
 	cursor:pointer;
+	opacity:0.5;
+}
+.player i:hover {
+	opacity:1;
 }
 .player .prev {
 	left:-4px;
@@ -342,12 +359,15 @@ footer .copy {
 	left:0;
 }
 .menu .logo {
+	display:none;
 	background-position:0 -80px;
 }
 .close-icon {
+	display:block;
 	position:absolute;
 	left:207px;
 	top:38px;
+	z-index:5;
 	width:46px;
 	height:44px;
 	cursor:pointer;
@@ -355,6 +375,12 @@ footer .copy {
 }
 .close-icon:hover {
 	background-position:0 -44px;
+}
+.menu .close-icon {
+	display:none;
+}
+.menu.finished .logo, .menu.finished .close-icon {
+	display:block;
 }
 .menu ul {
 	position:absolute;
@@ -460,6 +486,7 @@ h1 {
 	margin:0;
 }
 .gallery-b li {
+	overflow:hidden;
 	float:left;
 	width:50%;
 	background:#000000;
@@ -468,13 +495,15 @@ h1 {
 	display:block;
 	-webkit-filter:grayscale(100%);
     filter:grayscale(100%);
-	transition:filter, -webkit-filter, opacity 0.2s linear;
-	-webkit-transition:filter, -webkit-filter, opacity 0.2s linear;
+	transition:filter, opacity, transform, 0.5s linear;
+	-webkit-transition:-webkit-filter, opacity, -webkit-transform, 0.5s linear;
 }
 .gallery-b li a:hover {
 	-webkit-filter:grayscale(0);
     filter:grayscale(0);
 	opacity:0.5;
+	-webkit-transform:scale(1.15);
+	transform:scale(1.15);
 }
 .img-bg {
 	display:none;

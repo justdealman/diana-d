@@ -10,27 +10,45 @@ $(function() {
 		if ( !$('.menu').hasClass('opened') ) {
 			$('.menu').addClass('opened');
 			$('header .menu-open').hide();
+			setTimeout(function() {
+				$('.menu').addClass('finished');
+			}, 400);
 		} else {
-			$('.menu').removeClass('opened');
+			$('.menu').removeClass('opened finished');
 			$('header .menu-open').show();
 		}
 	});
 	$('.menu .close-icon').on('click', function(e) {
 		e.preventDefault();
-		$('.menu').removeClass('opened');
+		$('.menu').removeClass('opened finished');
 		$('header .menu-open').show();
 	});
 	$('html').click(function() {
-		$('.menu').removeClass('opened');
+		$('.menu').removeClass('opened finished');
 		$('header .menu-open').show();
 	});
 	$('.menu, .menu-open').click(function(e) {
 		e.stopPropagation();
 	});
 	$(window).load(function() {
-		$('.index .text p').typewrite({
-			'delay': 75
-		});
+		var textCoupletId = 0;
+		var textAnimationLength = 15000;
+		var textAnimationDelay = 2000;
+		function typeText() {
+			$('.index .text > div').hide();
+			$('.index .text > div p').css({
+				'display': 'none'
+			});
+			$('.index .text > div').eq(textCoupletId).show().find('p').typewrite({
+				'delay': textAnimationLength/$('.index .text > div').eq(textCoupletId).text().length
+			});
+			textCoupletId++;
+			if ( textCoupletId >= $('.index .text > div').size() ) {
+				textCoupletId = 0;
+			}
+		}
+		typeText();
+		setInterval(typeText, textAnimationLength+textAnimationDelay);
 	});
 	$(window).bind('scroll', function() {
 		var difference = $(window).scrollTop()+$(window).height()-$('footer').offset().top;
@@ -52,11 +70,16 @@ $(function() {
 		}
 		if ( difference > c ) {
 			$('.player').css({
-				'bottom': difference-c+'px'
+				'position': 'absolute',
+				'top': $('footer').offset().top-40+'px',
+				'bottom': 'auto'
+				//'bottom': difference-c+'px'
 			});
 		} else {
 			$('.player').css({
-				'bottom': '0'
+				'position': 'fixed',
+				'bottom': '0',
+				'top': 'auto'
 			});
 		}
 	});
@@ -114,6 +137,10 @@ $(function() {
 			overlay: {
 				locked: false
 			}
+		},
+		youtube: {
+			showinfo: 0,
+			iv_load_policy: 3
 		}
 	});
 	$('.photo-open').fancybox({
@@ -127,4 +154,7 @@ $(function() {
 			}
 		}
 	});
+	if ( $('.video-b').length > 0 || $('.gallery-b').length > 0 ) {
+		$('.wrapper').addClass('no-border');
+	}
 });

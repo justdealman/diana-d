@@ -3,6 +3,11 @@
 		width:33.33%;
 	}
 }
+@media all and (min-width:1600px) {
+	.gallery-b li {
+		width:25%;
+	}
+}
 @media all and (max-width:999px) {
 	.index:before {
 		content:'';
@@ -75,6 +80,9 @@
 	}
 	.wrapper {
 		padding:72px 0 0;
+	}
+	.wrapper.no-border {
+		padding:70px 0 0;
 	}
 	header {
 		height:70px;
@@ -186,6 +194,12 @@
 	.about-b hr {
 		background-position:center center;
 	}
+	header {
+		border-bottom:2px solid #b3b3b3 !important;
+	}
+	.wrapper {
+		padding-top:72px !important;
+	}
 	h1 {
 		padding:31px 20px 28px;
 		background:transparent;
@@ -247,5 +261,35 @@
 	}
 	.video-b {
 		margin-top:-8px;
+	}
+}
+@media all and (max-height:479px) {
+	.menu ul {
+		margin-top:-145px;
+	}
+	.menu ul li a {
+		font-size:30px;
+		line-height:40px;
+		padding:10px 0;
+	}
+}
+@media all and (max-height:379px) {
+	.menu ul {
+		margin-top:-120px;
+	}
+	.menu ul li a {
+		font-size:24px;
+		line-height:30px;
+		padding:10px 0;
+	}
+}
+@media all and (max-height:319px) {
+	.menu ul {
+		margin-top:-90px;
+	}
+	.menu ul li a {
+		font-size:20px;
+		line-height:26px;
+		padding:6px 0;
 	}
 }

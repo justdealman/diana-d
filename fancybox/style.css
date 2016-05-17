@@ -98,9 +98,9 @@
 }
 
 .fancybox-close {
-	position: absolute;
+	position: fixed;
 	top: 10px;
-	right: 10px;
+	right: 12px;
 	width: 52px;
 	height:48px;
 	cursor: pointer;
@@ -109,9 +109,9 @@
 }
 
 .fancybox-nav {
-	position: absolute;
+	position:fixed;
 	top: 0;
-	width: 40%;
+	width: 20%;
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
@@ -256,4 +256,21 @@
 	padding: 10px;
 	background: #000;
 	background: rgba(0, 0, 0, .8);
+}
+
+
+@media all and (max-width:639px) {
+	.fancybox-close {
+		top: -6px;
+		right: -8px;
+	}
+	.fancybox-prev span {
+		left: 10px;
+	}
+	.fancybox-next span {
+		right: 10px;
+	}
+	.fancybox-skin {
+		padding:36px 0;
+	}
 }
