@@ -273,4 +273,31 @@
 	.fancybox-skin {
 		padding:36px 0;
 	}
+	.fancybox-prev:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 36px;
+		height: 49px;
+		margin-top: -24px;
+		background: rgba(0,0,0,0.75);
+	}
+	.fancybox-next:before {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		width: 36px;
+		height: 49px;
+		margin-top: -24px;
+		background: rgba(0,0,0,0.75);
+	}
+}
+
+.fancybox-lock body {
+    overflow: hidden !important;
+}
+.fancybox-lock .fancybox-overlay {
+    overflow: hidden !important;
 }

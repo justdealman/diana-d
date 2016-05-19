@@ -135,7 +135,7 @@ $(function() {
 		helpers: {
 			media: {},
 			overlay: {
-				locked: false
+				locked: true
 			}
 		},
 		youtube: {
@@ -150,7 +150,7 @@ $(function() {
 		height: $(window).height(),
 		helpers: {
 			overlay: {
-				locked: false
+				locked: true
 			}
 		}
 	});
